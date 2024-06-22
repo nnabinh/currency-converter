@@ -2,6 +2,7 @@
 
 A simple currency conveter app with
 
+- Node v20 is required
 - Eslint/Prettier/Typescript configured
 - React Navigation integrated
 - RTK for a better redux state management
