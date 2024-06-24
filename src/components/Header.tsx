@@ -1,20 +1,20 @@
-import colors from "@/theme/colors";
-import fonts from "@/theme/fonts";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Entypo } from "@expo/vector-icons";
-import NavigationService from "@/navigation/service";
+import colors from '@/theme/colors';
+import fonts from '@/theme/fonts';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Entypo } from '@expo/vector-icons';
+import NavigationService from '@/navigation/service';
 
 export default function Header({
   text,
-  variant = "primary",
+  variant = 'primary',
   shouldShowBackButton,
 }: {
   text: string;
-  variant?: "primary" | "secondary";
+  variant?: 'primary' | 'secondary';
   shouldShowBackButton?: boolean;
 }) {
   const textColor =
-    variant === "primary"
+    variant === 'primary'
       ? colors.foreground.primary
       : colors.foreground.tertiary;
 
@@ -44,8 +44,8 @@ export default function Header({
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
   text: {

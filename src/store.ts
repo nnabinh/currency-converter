@@ -1,12 +1,11 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { TypedUseSelectorHook, useSelector, useDispatch } from "react-redux";
-import { converterApi } from "./features/currency-converter/service";
-import { persistStore, persistReducer } from "redux-persist";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import storage from "redux-persist/lib/storage";
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { TypedUseSelectorHook, useSelector, useDispatch } from 'react-redux';
+import { converterApi } from './features/currency-converter/service';
+import { persistStore, persistReducer } from 'redux-persist';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   version: 1,
   storage: AsyncStorage,
 };

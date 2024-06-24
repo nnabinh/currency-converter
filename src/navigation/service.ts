@@ -1,8 +1,8 @@
 import {
   CommonActions,
   NavigationContainerRef,
-} from "@react-navigation/native";
-import { MutableRefObject } from "react";
+} from '@react-navigation/native';
+import { MutableRefObject } from 'react';
 
 type NavigationRef = MutableRefObject<null | NavigationContainerRef<{}>>;
 
@@ -17,7 +17,7 @@ function navigate(name: string, params?: object) {
     CommonActions.navigate({
       name,
       params,
-    }),
+    })
   );
 }
 

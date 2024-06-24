@@ -1,12 +1,12 @@
 // https://docs.expo.dev/guides/using-eslint/
 module.exports = {
-  extends: ["expo", "prettier"],
-  plugins: ["prettier"],
+  extends: ['expo', 'prettier'],
+  plugins: ['prettier'],
   rules: {
-    "prettier/prettier": [
-      "error", // alternativly change to 'warn' if you want only warning
+    'prettier/prettier': [
+      'error', // alternativly change to 'warn' if you want only warning
       {
-        endOfLine: "auto",
+        endOfLine: 'auto',
       },
     ],
   },

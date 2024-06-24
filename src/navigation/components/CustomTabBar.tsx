@@ -1,9 +1,9 @@
-import React from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
-import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
-import colors from "@/theme/colors";
-import fonts from "@/theme/fonts";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import React from 'react';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import colors from '@/theme/colors';
+import fonts from '@/theme/fonts';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const CustomTabBar = ({
   state,
@@ -27,7 +27,7 @@ const CustomTabBar = ({
 
         const onPress = () => {
           const event = navigation.emit({
-            type: "tabPress",
+            type: 'tabPress',
             target: route.key,
             canPreventDefault: true,
           });
@@ -39,7 +39,7 @@ const CustomTabBar = ({
 
         const onLongPress = () => {
           navigation.emit({
-            type: "tabLongPress",
+            type: 'tabLongPress',
             target: route.key,
           });
         };
@@ -59,7 +59,7 @@ const CustomTabBar = ({
             style={styles.tabButton}
             key={index}
           >
-            {typeof label === "string" ? (
+            {typeof label === 'string' ? (
               <>
                 {options.tabBarIcon({
                   focused: isFocused,
@@ -87,18 +87,18 @@ const CustomTabBar = ({
 
 const styles = StyleSheet.create({
   tabContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     height: 64,
     borderTopWidth: 1,
-    borderTopColor: "#ccc",
+    borderTopColor: '#ccc',
     paddingTop: 8,
     paddingHorizontal: 8,
     backgroundColor: colors.background.secondary,
   },
   tabButton: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   label: {
     ...fonts.body2,

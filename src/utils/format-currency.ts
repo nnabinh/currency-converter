@@ -1,4 +1,4 @@
-import currencySymbols from "./currency-symbols";
+import currencySymbols from './currency-symbols';
 
 /**
  * Formats a number as currency
@@ -10,10 +10,10 @@ import currencySymbols from "./currency-symbols";
 const formatCurrency = (
   value: number,
   currency: string,
-  locale: string = "en-US"
+  locale: string = 'en-US'
 ): string => {
   const formattedValue = new Intl.NumberFormat(locale, {
-    style: "currency",
+    style: 'currency',
     currency: currency,
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,

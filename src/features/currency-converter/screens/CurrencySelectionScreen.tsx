@@ -1,28 +1,28 @@
-import Header from "@/components/Header";
-import Layout from "@/components/Layout";
+import Header from '@/components/Header';
+import Layout from '@/components/Layout';
 import {
   StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
   View,
-} from "react-native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { TopStackNavigatorParamList } from "@/navigation/top-stack-navigator";
-import { FlashList } from "@shopify/flash-list";
-import currencyFlags from "@/utils/currency-flags";
-import { currencies } from "country-data";
-import currencySymbols from "@/utils/currency-symbols";
-import fonts from "@/theme/fonts";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import colors from "@/theme/colors";
-import { useMemo, useState } from "react";
-import NavigationService from "@/navigation/service";
-import { EvilIcons } from "@expo/vector-icons";
+} from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { TopStackNavigatorParamList } from '@/navigation/top-stack-navigator';
+import { FlashList } from '@shopify/flash-list';
+import currencyFlags from '@/utils/currency-flags';
+import { currencies } from 'country-data';
+import currencySymbols from '@/utils/currency-symbols';
+import fonts from '@/theme/fonts';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import colors from '@/theme/colors';
+import { useMemo, useState } from 'react';
+import NavigationService from '@/navigation/service';
+import { EvilIcons } from '@expo/vector-icons';
 
 type CurrencySelectionScreenProps = NativeStackScreenProps<
   TopStackNavigatorParamList,
-  "CURRENCY_SELECTION_SCREEN"
+  'CURRENCY_SELECTION_SCREEN'
 >;
 
 const ROW_HEIGHT = 60;
@@ -63,14 +63,14 @@ export default function CurrencySelectionScreen({
   const { availableCurrencies, selectedCurrency, onSelect } =
     route.params || {};
   const insets = useSafeAreaInsets();
-  const [searchedText, setSearchedText] = useState("");
+  const [searchedText, setSearchedText] = useState('');
 
   const selectableCurrencies = useMemo(
     () =>
       availableCurrencies
         .filter((currency) => currency !== selectedCurrency)
         .filter((str) => str.includes(searchedText)),
-    [availableCurrencies, selectedCurrency, searchedText],
+    [availableCurrencies, selectedCurrency, searchedText]
   );
 
   return (
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   search: {
-    flexDirection: "row",
+    flexDirection: 'row',
     paddingHorizontal: 16,
     borderWidth: 1,
     borderColor: colors.foreground.secondary,
@@ -116,16 +116,16 @@ const styles = StyleSheet.create({
     marginTop: 12,
     marginBottom: 8,
     height: ROW_HEIGHT,
-    alignItems: "center",
+    alignItems: 'center',
     gap: 12,
   },
   searchInput: {
     flex: 1,
   },
   row: {
-    flexDirection: "row",
+    flexDirection: 'row',
     height: ROW_HEIGHT,
-    alignItems: "center",
+    alignItems: 'center',
     paddingHorizontal: 20,
   },
   selectedCurrency: {
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   name: {
     ...fonts.body1,
     flex: 1,
-    marginRight: "auto",
+    marginRight: 'auto',
   },
   symbol: {
     ...fonts.body1,

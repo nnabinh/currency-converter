@@ -1,7 +1,7 @@
-import colors from "@/theme/colors";
-import { ReactNode } from "react";
-import { Keyboard, Pressable, StyleSheet, View, ViewStyle } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import colors from '@/theme/colors';
+import { ReactNode } from 'react';
+import { Keyboard, Pressable, StyleSheet, View, ViewStyle } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Layout({
   style,

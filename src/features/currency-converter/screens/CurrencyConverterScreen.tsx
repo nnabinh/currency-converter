@@ -1,28 +1,28 @@
-import Header from "@/components/Header";
-import Layout from "@/components/Layout";
-import colors from "@/theme/colors";
+import Header from '@/components/Header';
+import Layout from '@/components/Layout';
+import colors from '@/theme/colors';
 import {
   ActivityIndicator,
   Button,
   StyleSheet,
   Text,
   View,
-} from "react-native";
-import ConverterCard from "../components/ConverterCard";
-import { useMemo, useState } from "react";
-import { useExchangeRatesQuery } from "../service";
-import fonts from "@/theme/fonts";
-import { AntDesign } from "@expo/vector-icons";
+} from 'react-native';
+import ConverterCard from '../components/ConverterCard';
+import { useMemo, useState } from 'react';
+import { useExchangeRatesQuery } from '../service';
+import fonts from '@/theme/fonts';
+import { AntDesign } from '@expo/vector-icons';
 
 const DEFAULT_AMOUNT = 1000;
-const DEFAULT_BASE_CURRENCY = "USD";
-const DEFAULT_SELECTED_CURRENCY = "SGD";
+const DEFAULT_BASE_CURRENCY = 'USD';
+const DEFAULT_SELECTED_CURRENCY = 'SGD';
 
 export default function CurrencyConverterScreen() {
   const [amount, setAmount] = useState(DEFAULT_AMOUNT);
   const [baseCurrency, setBaseCurrency] = useState(DEFAULT_BASE_CURRENCY);
   const [convertedCurrency, setConvertedCurrency] = useState(
-    DEFAULT_SELECTED_CURRENCY,
+    DEFAULT_SELECTED_CURRENCY
   );
 
   const { data, isLoading, isError, refetch } =
@@ -30,7 +30,7 @@ export default function CurrencyConverterScreen() {
 
   const availableCurrencies = useMemo(
     () => Object.keys(data?.conversion_rates || {}),
-    [data],
+    [data]
   );
 
   return (
@@ -99,14 +99,14 @@ const styles = StyleSheet.create({
     marginVertical: 100,
   },
   errorContainer: {
-    flexDirection: "row",
+    flexDirection: 'row',
     marginTop: 16,
     marginHorizontal: 20,
     padding: 12,
     borderRadius: 12,
     gap: 8,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: colors.background.error,
   },
   errorMessage: {

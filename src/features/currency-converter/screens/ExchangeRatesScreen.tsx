@@ -1,16 +1,16 @@
-import Header from "@/components/Header";
-import Layout from "@/components/Layout";
-import { FlashList } from "@shopify/flash-list";
-import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-import { useExchangeRatesQuery } from "../service";
-import { TopStackNavigatorParamList } from "@/navigation/top-stack-navigator";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import fonts from "@/theme/fonts";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import Header from '@/components/Header';
+import Layout from '@/components/Layout';
+import { FlashList } from '@shopify/flash-list';
+import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { useExchangeRatesQuery } from '../service';
+import { TopStackNavigatorParamList } from '@/navigation/top-stack-navigator';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import fonts from '@/theme/fonts';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type ExchangeRatesScreenProps = NativeStackScreenProps<
   TopStackNavigatorParamList,
-  "EXCHANGE_RATES_SCREEN"
+  'EXCHANGE_RATES_SCREEN'
 >;
 
 const ROW_HEIGHT = 40;
@@ -76,9 +76,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   row: {
-    flexDirection: "row",
+    flexDirection: 'row',
     height: ROW_HEIGHT,
-    alignItems: "center",
+    alignItems: 'center',
     paddingHorizontal: 20,
     gap: 12,
   },
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   code: {
     ...fonts.body1,
-    marginRight: "auto",
+    marginRight: 'auto',
   },
   rate: {
     ...fonts.body1,

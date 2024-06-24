@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
-import Layout from "@/components/Layout";
-import { StyleSheet } from "react-native";
+import Header from '@/components/Header';
+import Layout from '@/components/Layout';
+import { StyleSheet } from 'react-native';
 
 export default function CardsScreen() {
   return (

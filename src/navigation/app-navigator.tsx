@@ -1,8 +1,8 @@
-import BottomTabNavigator from "./bottom-tab-navigator";
+import BottomTabNavigator from './bottom-tab-navigator';
 
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { ROUTES } from "./routes";
-import TopStackNavigator from "./top-stack-navigator";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ROUTES } from './routes';
+import TopStackNavigator from './top-stack-navigator';
 const Stack = createNativeStackNavigator();
 
 export default function AppNavigator() {
@@ -15,7 +15,7 @@ export default function AppNavigator() {
           headerShown: false,
         }}
       />
-      <Stack.Group screenOptions={{ presentation: "fullScreenModal" }}>
+      <Stack.Group screenOptions={{ presentation: 'fullScreenModal' }}>
         <Stack.Screen
           name={ROUTES.TOP_STACK.ROOT}
           component={TopStackNavigator}

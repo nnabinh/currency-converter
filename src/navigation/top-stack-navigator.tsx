@@ -1,7 +1,7 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { ROUTES } from "./routes";
-import CurrencySelectionScreen from "@/features/currency-converter/screens/CurrencySelectionScreen";
-import ExchangeRatesScreen from "@/features/currency-converter/screens/ExchangeRatesScreen";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { ROUTES } from './routes';
+import CurrencySelectionScreen from '@/features/currency-converter/screens/CurrencySelectionScreen';
+import ExchangeRatesScreen from '@/features/currency-converter/screens/ExchangeRatesScreen';
 
 export type TopStackNavigatorParamList = {
   [ROUTES.TOP_STACK.CURRENCY_SELECTION_SCREEN]: {

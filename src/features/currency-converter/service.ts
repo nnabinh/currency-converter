@@ -1,5 +1,5 @@
 // Need to use the React-specific entry point to import createApi
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export type ExchangeRates = {
   base_code: string;
@@ -10,7 +10,7 @@ export type ExchangeRates = {
 
 // Define a service using a base URL and expected endpoints
 export const converterApi = createApi({
-  reducerPath: "converterApi",
+  reducerPath: 'converterApi',
   baseQuery: fetchBaseQuery({
     baseUrl: process.env.EXPO_PUBLIC_EXCHANGERATE_API,
   }),

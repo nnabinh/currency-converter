@@ -1,21 +1,22 @@
-import colors from "@/theme/colors";
-import fonts from "@/theme/fonts";
-import shadow from "@/theme/shadow";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { FontAwesome6 } from "@expo/vector-icons";
-import { Entypo } from "@expo/vector-icons";
-import currencyFlags from "@/utils/currency-flags";
-import formatCurrency from "@/utils/format-currency";
-import MaskInput, { createNumberMask } from "react-native-mask-input";
-import NavigationService from "@/navigation/service";
-import { ROUTES } from "@/navigation/routes";
-import { Feather } from "@expo/vector-icons";
-
-const numberMask = createNumberMask({
-  delimiter: ",",
-  separator: ".",
-  precision: 0,
-});
+import colors from '@/theme/colors';
+import fonts from '@/theme/fonts';
+import shadow from '@/theme/shadow';
+import {
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { FontAwesome6 } from '@expo/vector-icons';
+import { Entypo } from '@expo/vector-icons';
+import currencyFlags from '@/utils/currency-flags';
+import formatCurrency from '@/utils/format-currency';
+import NavigationService from '@/navigation/service';
+import { ROUTES } from '@/navigation/routes';
+import { Feather } from '@expo/vector-icons';
+import { useEffect, useState } from 'react';
+import formatNumber from '@/utils/format-number';
 
 export default function ConverterCard({
   amount,
@@ -36,13 +37,26 @@ export default function ConverterCard({
   onChangeBaseCurrency: (value: string) => void;
   onChangeConvertedCurrency: (value: string) => void;
 }) {
-  const onChangeAmount = (_: string, unmasked: string) => {
-    if (isNaN(+unmasked)) {
+  const [internalValue, setInternalValue] = useState(`${amount}`);
+
+  const onChangeText = (value: string) => {
+    const sanitizedValue =
+      (value.match(/\./g) || []).length > 1 ? value.replace(/\.$/, '') : value;
+    setInternalValue(sanitizedValue);
+  };
+
+  useEffect(() => {
+    const removedDecimalValue = internalValue.endsWith('.')
+      ? internalValue.replaceAll('.', '')
+      : internalValue;
+    const removedCommasValue = removedDecimalValue.replaceAll(',', '');
+
+    if (isNaN(+removedCommasValue)) {
       onChange(0);
     } else {
-      onChange(+unmasked);
+      onChange(+removedCommasValue);
     }
-  };
+  }, [internalValue, onChange]);
 
   return (
     <View style={styles.container}>
@@ -70,14 +84,13 @@ export default function ConverterCard({
               color={colors.foreground.secondary}
             />
           </TouchableOpacity>
-          <MaskInput
+          <TextInput
             style={styles.amount}
-            value={`${amount}`}
-            onChangeText={onChangeAmount}
-            mask={numberMask}
+            value={formatNumber(internalValue)}
+            onChangeText={onChangeText}
             keyboardType="numeric"
             placeholder="0.00"
-            maxLength={8}
+            maxLength={10}
           />
         </View>
       </View>
@@ -151,15 +164,15 @@ const styles = StyleSheet.create({
   },
   row: {
     marginTop: 8,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
     height: 50,
   },
   divider: {
     marginVertical: 12,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   icon: {
     backgroundColor: colors.background.primary,
@@ -168,16 +181,16 @@ const styles = StyleSheet.create({
   },
   line: {
     height: 1,
-    width: "100%",
+    width: '100%',
     backgroundColor: colors.foreground.secondary,
-    position: "absolute",
+    position: 'absolute',
     top: 14,
   },
   dropdown: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: 4,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   flag: {
     ...fonts.body1,
@@ -193,18 +206,18 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     width: 120,
     height: 40,
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "right",
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'right',
   },
   convertedAmount: {
     ...fonts.body1,
   },
   exchangeRatesContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 4,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
   },
   exchangeRates: {
     ...fonts.body2,
